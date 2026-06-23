@@ -72,8 +72,8 @@ export default function CountersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Counters & Trackers</h1>
-          <p className="text-slate-400 text-sm mt-0.5">{counters.length} active trackers</p>
+          <h1 className="text-2xl font-bold text-theme-primary">Counters & Trackers</h1>
+          <p className="text-theme-secondary text-sm mt-0.5">{counters.length} active trackers</p>
         </div>
         <button onClick={() => { setEditCounter(null); setShowModal(true) }} className="btn-primary text-sm py-2.5">
           <Plus className="w-4 h-4" /> New Counter
@@ -83,7 +83,7 @@ export default function CountersPage() {
       {/* Presets (if no counters) */}
       {!loading && counters.length === 0 && (
         <div className="glass-card p-6">
-          <h3 className="text-sm font-medium text-slate-400 mb-4">Quick Start with a preset:</h3>
+          <h3 className="text-sm font-medium text-theme-secondary mb-4">Quick Start with a preset:</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {PRESET_COUNTERS.map(preset => (
               <button
@@ -100,8 +100,8 @@ export default function CountersPage() {
               >
                 <span className="text-xl">{preset.icon}</span>
                 <div>
-                  <div className="text-xs font-medium text-white">{preset.name}</div>
-                  {preset.target && <div className="text-[10px] text-slate-500">Goal: {preset.target} {preset.unit}</div>}
+                  <div className="text-xs font-medium text-theme-primary">{preset.name}</div>
+                  {preset.target && <div className="text-[10px] text-theme-secondary">Goal: {preset.target} {preset.unit}</div>}
                 </div>
               </button>
             ))}
@@ -134,15 +134,15 @@ export default function CountersPage() {
                     <div className="flex items-center gap-2">
                       <span className="text-2xl">{counter.icon ?? '🔢'}</span>
                       <div>
-                        <div className="text-sm font-medium text-white">{counter.name}</div>
-                        {counter.description && <div className="text-xs text-slate-500 mt-0.5">{counter.description}</div>}
+                        <div className="text-sm font-medium text-theme-primary">{counter.name}</div>
+                        {counter.description && <div className="text-xs text-theme-secondary mt-0.5">{counter.description}</div>}
                       </div>
                     </div>
                     <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button onClick={() => { setEditCounter(counter); setShowModal(true) }} className="p-1.5 rounded-lg hover:bg-white/10 text-slate-500 hover:text-white">
+                      <button onClick={() => { setEditCounter(counter); setShowModal(true) }} className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary hover:text-theme-primary">
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
-                      <button onClick={() => deleteCounter(counter.id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-slate-500 hover:text-red-400">
+                      <button onClick={() => deleteCounter(counter.id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-theme-secondary hover:text-red-400">
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -151,16 +151,16 @@ export default function CountersPage() {
                   {/* Value */}
                   <div className="text-center my-4">
                     <div className="text-4xl font-black" style={{ color }}>{counter.value}</div>
-                    {counter.unit && <div className="text-xs text-slate-500 mt-1">{counter.unit}</div>}
+                    {counter.unit && <div className="text-xs text-theme-secondary mt-1">{counter.unit}</div>}
                     {counter.target && (
-                      <div className="text-xs text-slate-600 mt-0.5">/ {counter.target} {counter.unit}</div>
+                      <div className="text-xs text-theme-secondary mt-0.5">/ {counter.target} {counter.unit}</div>
                     )}
                   </div>
 
                   {/* Progress */}
                   {progress !== null && (
                     <div className="mb-4">
-                      <div className="flex items-center justify-between text-[10px] text-slate-500 mb-1.5">
+                      <div className="flex items-center justify-between text-[10px] text-theme-secondary mb-1.5">
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> Goal</span>
                         <span>{Math.round(progress)}%</span>
                       </div>
@@ -180,7 +180,7 @@ export default function CountersPage() {
                     <button
                       onClick={() => decrement(counter)}
                       disabled={counter.value === 0}
-                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:bg-white/10 disabled:opacity-30 text-slate-400"
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:bg-theme-elevated disabled:opacity-30 text-theme-secondary"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
@@ -194,7 +194,7 @@ export default function CountersPage() {
                     </button>
                     <button
                       onClick={() => reset(counter)}
-                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:bg-white/10 text-slate-400"
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:bg-theme-elevated text-theme-secondary"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                     </button>
@@ -254,8 +254,8 @@ function CounterModal({ counter, onClose, onSave }: {
         className="w-full max-w-sm glass-strong rounded-2xl p-6"
       >
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-lg font-semibold text-white">{counter ? 'Edit Counter' : 'New Counter'}</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400"><X className="w-4 h-4" /></button>
+          <h2 className="text-lg font-semibold text-theme-primary">{counter ? 'Edit Counter' : 'New Counter'}</h2>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary"><X className="w-4 h-4" /></button>
         </div>
         <form onSubmit={async e => { e.preventDefault(); setSaving(true); await onSave({ name, icon, unit: unit || undefined, target: target ? Number(target) : undefined, color, reset_daily: resetDaily }); setSaving(false) }} className="space-y-3">
           <div className="flex gap-3">
@@ -267,7 +267,7 @@ function CounterModal({ counter, onClose, onSave }: {
             <input value={target} onChange={e => setTarget(e.target.value)} type="number" min="1" placeholder="Goal (optional)" className="input-field text-sm" />
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-xs text-slate-400">Color:</label>
+            <label className="text-xs text-theme-secondary">Color:</label>
             <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-10 h-8 rounded-lg cursor-pointer bg-transparent border-0" />
           </div>
           <label className="flex items-center gap-3 cursor-pointer">
@@ -277,7 +277,7 @@ function CounterModal({ counter, onClose, onSave }: {
             >
               <div className={cn('absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform', resetDaily ? 'left-5' : 'left-0.5')} />
             </div>
-            <span className="text-xs text-slate-400">Reset daily at midnight</span>
+            <span className="text-xs text-theme-secondary">Reset daily at midnight</span>
           </label>
           <div className="flex gap-3 pt-1">
             <button type="button" onClick={onClose} className="btn-secondary flex-1 py-2.5 text-sm justify-center">Cancel</button>

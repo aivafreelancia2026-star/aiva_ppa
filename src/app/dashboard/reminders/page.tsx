@@ -61,8 +61,8 @@ export default function RemindersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Reminders</h1>
-          <p className="text-slate-400 text-sm mt-0.5">{upcoming.length} upcoming</p>
+          <h1 className="text-2xl font-bold text-theme-primary">Reminders</h1>
+          <p className="text-theme-secondary text-sm mt-0.5">{upcoming.length} upcoming</p>
         </div>
         <button onClick={() => { setEditReminder(null); setShowModal(true) }} className="btn-primary text-sm py-2.5">
           <Plus className="w-4 h-4" /> New Reminder
@@ -74,7 +74,7 @@ export default function RemindersPage() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <Bell className="w-4 h-4 text-yellow-400" />
-            <span className="text-sm font-medium text-slate-300">Upcoming</span>
+            <span className="text-sm font-medium text-theme-secondary">Upcoming</span>
           </div>
           <div className="space-y-3">
             <AnimatePresence>
@@ -96,8 +96,8 @@ export default function RemindersPage() {
       {!loading && past.length > 0 && (
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <BellOff className="w-4 h-4 text-slate-600" />
-            <span className="text-sm font-medium text-slate-500">Past / Inactive</span>
+            <BellOff className="w-4 h-4 text-theme-secondary" />
+            <span className="text-sm font-medium text-theme-secondary">Past / Inactive</span>
           </div>
           <div className="space-y-3 opacity-50">
             <AnimatePresence>
@@ -117,9 +117,9 @@ export default function RemindersPage() {
 
       {!loading && reminders.length === 0 && (
         <div className="text-center py-16">
-          <Bell className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-          <h3 className="text-slate-400 font-medium">No reminders yet</h3>
-          <p className="text-slate-600 text-sm mt-1">Set a reminder and never miss anything</p>
+          <Bell className="w-12 h-12 text-theme-secondary mx-auto mb-3" />
+          <h3 className="text-theme-secondary font-medium">No reminders yet</h3>
+          <p className="text-theme-secondary text-sm mt-1">Set a reminder and never miss anything</p>
           <button onClick={() => setShowModal(true)} className="btn-primary text-sm py-2 px-4 mt-4">
             <Plus className="w-4 h-4" /> Add Reminder
           </button>
@@ -177,14 +177,14 @@ function ReminderCard({ reminder, onToggle, onEdit, onDelete }: {
       </div>
 
       <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium text-white">{reminder.title}</div>
-        {reminder.description && <div className="text-xs text-slate-500 mt-0.5 truncate">{reminder.description}</div>}
+        <div className="text-sm font-medium text-theme-primary">{reminder.title}</div>
+        {reminder.description && <div className="text-xs text-theme-secondary mt-0.5 truncate">{reminder.description}</div>}
         <div className="flex items-center gap-3 mt-1.5">
-          <div className="flex items-center gap-1 text-xs text-slate-400">
+          <div className="flex items-center gap-1 text-xs text-theme-secondary">
             <Calendar className="w-3 h-3" />
             {format(dateObj, 'MMM d, yyyy')}
           </div>
-          <div className="flex items-center gap-1 text-xs text-slate-400">
+          <div className="flex items-center gap-1 text-xs text-theme-secondary">
             <Clock className="w-3 h-3" />
             {format(dateObj, 'h:mm a')}
           </div>
@@ -200,15 +200,15 @@ function ReminderCard({ reminder, onToggle, onEdit, onDelete }: {
       <div className="flex items-center gap-1.5">
         <button
           onClick={() => onToggle(reminder)}
-          className={cn('p-1.5 rounded-lg transition-all text-xs', reminder.is_active ? 'text-yellow-400 hover:bg-yellow-500/10' : 'text-slate-600 hover:bg-white/10')}
+          className={cn('p-1.5 rounded-lg transition-all text-xs', reminder.is_active ? 'text-yellow-400 hover:bg-yellow-500/10' : 'text-theme-secondary hover:bg-theme-elevated')}
         >
           {reminder.is_active ? <Bell className="w-4 h-4" /> : <BellOff className="w-4 h-4" />}
         </button>
         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button onClick={onEdit} className="p-1.5 rounded-lg hover:bg-white/10 text-slate-500 hover:text-white transition-all">
+          <button onClick={onEdit} className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary hover:text-theme-primary transition-all">
             <Edit2 className="w-3.5 h-3.5" />
           </button>
-          <button onClick={() => onDelete(reminder.id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-slate-500 hover:text-red-400 transition-all">
+          <button onClick={() => onDelete(reminder.id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-theme-secondary hover:text-red-400 transition-all">
             <Trash2 className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -243,8 +243,8 @@ function ReminderModal({ reminder, onClose, onSave }: {
         className="w-full max-w-sm glass-strong rounded-2xl p-6"
       >
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-lg font-semibold text-white">{reminder ? 'Edit Reminder' : 'New Reminder'}</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400"><X className="w-4 h-4" /></button>
+          <h2 className="text-lg font-semibold text-theme-primary">{reminder ? 'Edit Reminder' : 'New Reminder'}</h2>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary"><X className="w-4 h-4" /></button>
         </div>
         <form onSubmit={async e => {
           e.preventDefault(); setSaving(true)
@@ -256,16 +256,16 @@ function ReminderModal({ reminder, onClose, onSave }: {
           <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Additional notes..." rows={2} className="input-field text-sm resize-none" />
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1">Date</label>
+              <label className="block text-xs text-theme-secondary mb-1">Date</label>
               <input type="date" value={date} onChange={e => setDate(e.target.value)} required className="input-field text-sm" />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1">Time</label>
+              <label className="block text-xs text-theme-secondary mb-1">Time</label>
               <input type="time" value={time} onChange={e => setTime(e.target.value)} required className="input-field text-sm" />
             </div>
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Repeat</label>
+            <label className="block text-xs text-theme-secondary mb-1">Repeat</label>
             <select value={frequency} onChange={e => setFrequency(e.target.value as ReminderFrequency)} className="input-field text-sm">
               {(Object.entries(FREQ_LABELS) as [ReminderFrequency, string][]).map(([k, v]) => (
                 <option key={k} value={k}>{v}</option>

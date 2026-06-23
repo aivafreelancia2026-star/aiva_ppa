@@ -158,8 +158,8 @@ export default function ChatPage() {
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-base font-semibold text-white">AIVA AI</h2>
-            <p className="text-xs text-slate-500">Your agentic productivity assistant</p>
+            <h2 className="text-base font-semibold text-theme-primary">AIVA AI</h2>
+            <p className="text-xs text-theme-secondary">Your agentic productivity assistant</p>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function ChatPage() {
           {messages.length > 0 && (
             <button
               onClick={clearChat}
-              className="p-2 rounded-lg text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-all"
+              className="p-2 rounded-lg text-theme-secondary hover:text-red-400 hover:bg-red-500/10 transition-all"
               title="Clear chat"
             >
               <Trash2 className="w-4 h-4" />
@@ -178,38 +178,36 @@ export default function ChatPage() {
           <div className="relative">
             <button
               onClick={() => setModelMenuOpen(!modelMenuOpen)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
-              style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)', color: '#a78bfa' }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium transition-all bg-accent-purple/10 border border-theme-border text-accent-purple hover:bg-accent-purple/20"
             >
               <span>{MODEL_CONFIG[model].icon}</span>
               <span className="hidden sm:block">{MODEL_CONFIG[model].label}</span>
               <ChevronDown className={cn('w-3 h-3 transition-transform', modelMenuOpen && 'rotate-180')} />
             </button>
 
-            <AnimatePresence>
+             <AnimatePresence>
               {modelMenuOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: 8, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  className="absolute right-0 top-full mt-2 w-56 rounded-xl overflow-hidden z-50"
-                  style={{ background: '#1a1a2e', border: '1px solid rgba(139,92,246,0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
+                  className="absolute right-0 top-full mt-2 w-56 rounded-xl overflow-hidden z-50 bg-theme-panel border border-theme-border shadow-lg"
                 >
                   {(Object.entries(MODEL_CONFIG) as [AIModel, typeof MODEL_CONFIG[AIModel]][]).map(([id, cfg]) => (
                     <button
                       key={id}
                       onClick={() => { setModel(id); setModelMenuOpen(false) }}
                       className={cn(
-                        'w-full flex items-center gap-3 px-4 py-3 text-sm text-left transition-colors hover:bg-white/5',
-                        model === id && 'bg-purple-500/10'
+                        'w-full flex items-center gap-3 px-4 py-3 text-sm text-left transition-colors hover:bg-theme-elevated',
+                        model === id && 'bg-accent-purple/10'
                       )}
                     >
                       <span className="text-lg">{cfg.icon}</span>
                       <div>
-                        <div className="text-white font-medium text-xs">{cfg.label}</div>
-                        <div className="text-slate-500 text-[10px]">{cfg.provider}</div>
+                        <div className="text-theme-primary font-medium text-xs">{cfg.label}</div>
+                        <div className="text-theme-secondary text-[10px]">{cfg.provider}</div>
                       </div>
-                      {model === id && <Check className="w-3.5 h-3.5 text-purple-400 ml-auto" />}
+                      {model === id && <Check className="w-3.5 h-3.5 text-accent-purple ml-auto" />}
                     </button>
                   ))}
                 </motion.div>
@@ -232,8 +230,8 @@ export default function ChatPage() {
                 style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', boxShadow: '0 0 40px rgba(124,58,237,0.4)' }}>
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">How can I help you today?</h3>
-              <p className="text-slate-400 text-sm max-w-xs">
+              <h3 className="text-xl font-bold text-theme-primary mb-2">How can I help you today?</h3>
+              <p className="text-theme-secondary text-sm max-w-xs mx-auto">
                 I can manage your tasks, shopping list, counters, and reminders through natural conversation.
               </p>
             </div>
@@ -243,11 +241,10 @@ export default function ChatPage() {
                 <button
                   key={s.text}
                   onClick={() => sendMessage(s.text)}
-                  className="flex items-start gap-3 p-3 rounded-xl text-left transition-all hover:scale-[1.02]"
-                  style={{ background: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.12)' }}
+                  className="flex items-start gap-3 p-3 rounded-xl text-left transition-all hover:scale-[1.02] bg-theme-elevated border border-theme-border hover:bg-theme-elevated/80"
                 >
                   <s.icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: s.color }} />
-                  <span className="text-xs text-slate-300 leading-relaxed">{s.text}</span>
+                  <span className="text-xs text-theme-secondary leading-relaxed">{s.text}</span>
                 </button>
               ))}
             </div>
@@ -271,11 +268,11 @@ export default function ChatPage() {
                 <div className={cn('group max-w-[85%] relative', msg.role === 'user' ? 'items-end' : 'items-start')}>
                   {msg.role === 'assistant' && msg.model && (
                     <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-[10px] text-slate-600">{MODEL_CONFIG[msg.model]?.label}</span>
+                      <span className="text-[10px] text-theme-muted">{MODEL_CONFIG[msg.model]?.label}</span>
                     </div>
                   )}
 
-                  <div className={cn('px-4 py-3 text-sm leading-relaxed', msg.role === 'user' ? 'chat-user text-white' : 'chat-ai text-slate-200')}>
+                  <div className={cn('px-4 py-3 text-sm leading-relaxed', msg.role === 'user' ? 'chat-user text-white' : 'chat-ai text-theme-primary')}>
                     {msg.role === 'user' ? (
                       <span className="whitespace-pre-wrap">{msg.content}</span>
                     ) : msg.content ? (
@@ -286,13 +283,13 @@ export default function ChatPage() {
                           ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
                           ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
                           code: ({ children }) => <code className="bg-black/30 px-1.5 py-0.5 rounded text-xs font-mono text-purple-300">{children}</code>,
-                          strong: ({ children }) => <strong className="text-white font-semibold">{children}</strong>,
+                          strong: ({ children }) => <strong className="text-theme-primary font-semibold">{children}</strong>,
                         }}
                       >
                         {msg.content}
                       </ReactMarkdown>
                     ) : (
-                      <div className="flex items-center gap-2 text-slate-500">
+                      <div className="flex items-center gap-2 text-theme-secondary">
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
                         <span className="text-xs">Thinking...</span>
                       </div>
@@ -302,7 +299,7 @@ export default function ChatPage() {
                   {msg.role === 'assistant' && msg.content && (
                     <button
                       onClick={() => copyMessage(msg.content, msg.id)}
-                      className="absolute -bottom-6 right-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[10px] text-slate-600 hover:text-slate-400"
+                      className="absolute -bottom-6 right-0 opacity-60 group-hover:opacity-100 hover:text-theme-primary transition-opacity flex items-center gap-1 text-[10px] text-theme-secondary"
                     >
                       {copiedId === msg.id ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                       {copiedId === msg.id ? 'Copied' : 'Copy'}
@@ -311,8 +308,7 @@ export default function ChatPage() {
                 </div>
 
                 {msg.role === 'user' && (
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 text-xs font-bold"
-                    style={{ background: 'rgba(139,92,246,0.2)', color: '#a78bfa' }}>
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 text-xs font-bold bg-accent-purple/20 text-accent-purple">
                     U
                   </div>
                 )}
@@ -325,8 +321,7 @@ export default function ChatPage() {
 
       {/* Input */}
       <div className="mt-4 flex-shrink-0">
-        <div className="relative rounded-2xl overflow-hidden"
-          style={{ background: 'rgba(26,26,46,0.8)', border: '1px solid rgba(139,92,246,0.2)', boxShadow: '0 0 30px rgba(139,92,246,0.1)' }}>
+        <div className="relative rounded-2xl overflow-hidden bg-theme-panel border border-theme-border shadow-lg">
           <textarea
             ref={inputRef}
             value={input}
@@ -334,7 +329,7 @@ export default function ChatPage() {
             onKeyDown={handleKeyDown}
             placeholder="Ask AIVA anything... 'Add task', 'Remind me', 'Show shopping list'"
             rows={1}
-            className="w-full px-5 py-4 pr-14 bg-transparent text-sm text-white placeholder-slate-600 outline-none resize-none"
+            className="w-full px-5 py-4 pr-14 bg-transparent text-sm text-theme-primary placeholder-theme-secondary/60 outline-none resize-none"
             style={{ maxHeight: '160px' }}
           />
           <button
@@ -344,7 +339,7 @@ export default function ChatPage() {
               'absolute right-3 bottom-3 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200',
               input.trim() && !loading
                 ? 'bg-gradient-to-br from-violet-600 to-indigo-600 shadow-lg shadow-violet-500/30 hover:scale-110'
-                : 'bg-slate-800 cursor-not-allowed'
+                : 'bg-theme-elevated text-theme-muted/50 cursor-not-allowed'
             )}
           >
             {loading ? (
@@ -354,7 +349,7 @@ export default function ChatPage() {
             )}
           </button>
         </div>
-        <p className="text-center text-[10px] text-slate-700 mt-2">
+        <p className="text-center text-[10px] text-theme-muted mt-2">
           AIVA can make mistakes. Verify important information.
         </p>
       </div>

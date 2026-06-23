@@ -44,23 +44,23 @@ export default function SettingsPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Settings</h1>
-        <p className="text-slate-400 text-sm mt-0.5">Manage your AIVA AI preferences</p>
+        <h1 className="text-2xl font-bold text-theme-primary">Settings</h1>
+        <p className="text-theme-secondary text-sm mt-0.5">Manage your AIVA AI preferences</p>
       </div>
 
       {/* Profile */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-6">
         <div className="flex items-center gap-3 mb-5">
           <User className="w-4 h-4 text-purple-400" />
-          <h2 className="font-semibold text-white">Profile</h2>
+          <h2 className="font-semibold text-theme-primary">Profile</h2>
         </div>
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 font-medium">Display Name</label>
+            <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Display Name</label>
             <input value={name} onChange={e => setName(e.target.value)} className="input-field text-sm" />
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 font-medium">Email</label>
+            <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Email</label>
             <input value={user.email} readOnly className="input-field text-sm opacity-50 cursor-not-allowed" />
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function SettingsPage() {
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="glass-card p-6">
         <div className="flex items-center gap-3 mb-5">
           <Brain className="w-4 h-4 text-purple-400" />
-          <h2 className="font-semibold text-white">Default AI Model</h2>
+          <h2 className="font-semibold text-theme-primary">Default AI Model</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {(Object.entries(MODEL_CONFIG) as [AIModel, typeof MODEL_CONFIG[AIModel]][]).map(([id, cfg]) => (
@@ -81,26 +81,26 @@ export default function SettingsPage() {
                 'flex items-center gap-3 p-3 rounded-xl text-left transition-all',
                 model === id
                   ? 'border-2 border-purple-500 bg-purple-500/10'
-                  : 'border border-white/10 hover:border-purple-500/30 hover:bg-white/5'
+                  : 'border border-theme-border hover:border-purple-500/30 hover:bg-theme-elevated'
               )}
             >
               <span className="text-2xl">{cfg.icon}</span>
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium text-white">{cfg.label}</div>
-                <div className="text-xs text-slate-500">{cfg.provider}</div>
+                <div className="text-sm font-medium text-theme-primary">{cfg.label}</div>
+                <div className="text-xs text-theme-secondary">{cfg.provider}</div>
               </div>
               {model === id && <Check className="w-4 h-4 text-purple-400 flex-shrink-0" />}
             </button>
           ))}
         </div>
-        <p className="text-xs text-slate-500 mt-3">You can switch models any time in the chat interface.</p>
+        <p className="text-xs text-theme-secondary mt-3">You can switch models any time in the chat interface.</p>
       </motion.div>
 
       {/* Notifications */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="glass-card p-6">
         <div className="flex items-center gap-3 mb-5">
           <Bell className="w-4 h-4 text-yellow-400" />
-          <h2 className="font-semibold text-white">Notifications</h2>
+          <h2 className="font-semibold text-theme-primary">Notifications</h2>
         </div>
         <div className="space-y-3">
           {[
@@ -110,8 +110,8 @@ export default function SettingsPage() {
           ].map(item => (
             <div key={item.label} className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-white">{item.label}</div>
-                <div className="text-xs text-slate-500">{item.desc}</div>
+                <div className="text-sm text-theme-primary">{item.label}</div>
+                <div className="text-xs text-theme-secondary">{item.desc}</div>
               </div>
               <div className="w-10 h-5 rounded-full bg-purple-600 relative cursor-pointer">
                 <div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-white" />

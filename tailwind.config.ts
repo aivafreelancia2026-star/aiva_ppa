@@ -38,6 +38,15 @@ const config: Config = {
           teal: '#14b8a6',
           pink: '#ec4899',
         },
+        theme: {
+          primary: 'rgb(var(--text-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--text-secondary) / <alpha-value>)',
+          muted: 'rgb(var(--text-muted) / <alpha-value>)',
+          bg: 'rgb(var(--bg-primary) / <alpha-value>)',
+          panel: 'rgb(var(--bg-secondary) / <alpha-value>)',
+          elevated: 'rgb(var(--bg-tertiary) / <alpha-value>)',
+          border: 'rgb(var(--border) / <alpha-value>)',
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -99,7 +108,7 @@ const config: Config = {
         'card-hover': '0 8px 40px rgba(0,0,0,0.6)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
     },

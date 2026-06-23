@@ -74,8 +74,8 @@ export default function TasksPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Tasks</h1>
-          <p className="text-slate-400 text-sm mt-0.5">{tasks.filter(t => t.status !== 'completed').length} active tasks</p>
+          <h1 className="text-2xl font-bold text-theme-primary">Tasks</h1>
+          <p className="text-theme-secondary text-sm mt-0.5">{tasks.filter(t => t.status !== 'completed').length} active tasks</p>
         </div>
         <button onClick={() => { setEditTask(null); setShowModal(true) }} className="btn-primary text-sm py-2.5 self-start">
           <Plus className="w-4 h-4" /> New Task
@@ -85,7 +85,7 @@ export default function TasksPage() {
       {/* Search + Filter */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-secondary" />
           <input
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -168,33 +168,33 @@ export default function TasksPage() {
                           >
                             {task.status === 'completed'
                               ? <CheckCircle2 className="w-5 h-5 text-green-400" />
-                              : <Circle className="w-5 h-5 text-slate-600 hover:text-purple-400" />
+                              : <Circle className="w-5 h-5 text-theme-secondary hover:text-accent-purple" />
                             }
                           </button>
 
                           {/* Content */}
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-wrap items-start gap-2">
-                              <span className={cn('text-sm font-medium text-white flex-1', task.status === 'completed' && 'line-through text-slate-500')}>
+                              <span className={cn('text-sm font-medium text-theme-primary flex-1', task.status === 'completed' && 'line-through text-theme-muted')}>
                                 {task.title}
                               </span>
                               <span className={`status-badge ${pc.bg} ${pc.color} text-[10px]`}>{pc.label}</span>
                             </div>
 
                             {task.description && (
-                              <p className="text-xs text-slate-500 mt-1 line-clamp-1">{task.description}</p>
+                              <p className="text-xs text-theme-secondary mt-1 line-clamp-1">{task.description}</p>
                             )}
 
                             <div className="flex flex-wrap items-center gap-3 mt-2">
                               {task.due_date && (
-                                <div className={cn('flex items-center gap-1 text-xs', overdue ? 'text-red-400' : 'text-slate-500')}>
+                                <div className={cn('flex items-center gap-1 text-xs', overdue ? 'text-red-400' : 'text-theme-secondary')}>
                                   {overdue ? <AlertCircle className="w-3 h-3" /> : <Calendar className="w-3 h-3" />}
                                   {formatDate(task.due_date)}
                                   {task.due_time && ` · ${task.due_time}`}
                                 </div>
                               )}
                               {task.category && (
-                                <div className="flex items-center gap-1 text-xs text-slate-600">
+                                <div className="flex items-center gap-1 text-xs text-theme-secondary">
                                   <Tag className="w-3 h-3" />
                                   {task.category}
                                 </div>
@@ -206,14 +206,14 @@ export default function TasksPage() {
                           <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button
                               onClick={() => { setEditTask(task); setShowModal(true) }}
-                              className="p-1.5 rounded-lg hover:bg-white/10 text-slate-500 hover:text-white transition-all"
+                              className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary hover:text-theme-primary transition-all"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
                             </button>
                             <button
                               onClick={() => deleteTask(task.id)}
                               disabled={deletingId === task.id}
-                              className="p-1.5 rounded-lg hover:bg-red-500/10 text-slate-500 hover:text-red-400 transition-all"
+                              className="p-1.5 rounded-lg hover:bg-red-500/10 text-theme-secondary hover:text-red-400 transition-all"
                             >
                               {deletingId === task.id
                                 ? <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -299,34 +299,34 @@ function TaskModal({ task, onClose, onSave }: {
         className="w-full max-w-md glass-strong rounded-2xl p-6"
       >
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-lg font-semibold text-white">{task ? 'Edit Task' : 'New Task'}</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400">
+          <h2 className="text-lg font-semibold text-theme-primary">{task ? 'Edit Task' : 'New Task'}</h2>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-theme-elevated text-theme-secondary">
             <X className="w-4 h-4" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 font-medium">Title *</label>
+            <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Title *</label>
             <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Task title" required className="input-field text-sm" />
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 font-medium">Description</label>
+            <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Description</label>
             <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Optional details..." rows={2} className="input-field text-sm resize-none" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Due Date</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Due Date</label>
               <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} className="input-field text-sm" />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Due Time</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Due Time</label>
               <input type="time" value={dueTime} onChange={e => setDueTime(e.target.value)} className="input-field text-sm" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Priority</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Priority</label>
               <select value={priority} onChange={e => setPriority(e.target.value as Priority)} className="input-field text-sm">
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -335,7 +335,7 @@ function TaskModal({ task, onClose, onSave }: {
               </select>
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Status</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Status</label>
               <select value={status} onChange={e => setStatus(e.target.value as TaskStatus)} className="input-field text-sm">
                 <option value="pending">Pending</option>
                 <option value="in_progress">In Progress</option>
@@ -345,7 +345,7 @@ function TaskModal({ task, onClose, onSave }: {
             </div>
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 font-medium">Category</label>
+            <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Category</label>
             <input value={category} onChange={e => setCategory(e.target.value)} placeholder="work, personal, health..." className="input-field text-sm" />
           </div>
           <div className="flex gap-3 pt-2">
