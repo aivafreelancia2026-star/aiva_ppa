@@ -14,7 +14,7 @@ import toast from 'react-hot-toast'
 const PRESET_COUNTERS = [
   { name: 'Water Intake', icon: '💧', unit: 'glasses', target: 8, color: '#06b6d4', reset_daily: true },
   { name: 'Exercise', icon: '🏋️', unit: 'mins', target: 30, color: '#10b981', reset_daily: true },
-  { name: 'Reading', icon: '📚', unit: 'pages', target: 20, color: '#14b8a6', reset_daily: true },
+  { name: 'Reading', icon: '📚', unit: 'pages', target: 20, color: '#f59e0b', reset_daily: true },
   { name: 'Steps', icon: '👟', unit: 'steps', target: 10000, color: '#f59e0b', reset_daily: true },
   { name: 'Expenses', icon: '💰', unit: '₹', color: '#f87171', reset_daily: false },
   { name: 'Mood', icon: '😊', unit: '/10', target: 10, color: '#ec4899', reset_daily: true },
@@ -119,7 +119,7 @@ export default function CountersPage() {
           <AnimatePresence>
             {counters.map(counter => {
               const progress = counter.target ? Math.min((counter.value / counter.target) * 100, 100) : null
-              const color = counter.color ?? '#14b8a6'
+              const color = counter.color ?? '#f59e0b'
               return (
                 <motion.div
                   key={counter.id}
@@ -239,7 +239,7 @@ function CounterModal({ counter, onClose, onSave }: {
   const [icon, setIcon] = useState(counter?.icon ?? '🔢')
   const [unit, setUnit] = useState(counter?.unit ?? '')
   const [target, setTarget] = useState(counter?.target?.toString() ?? '')
-  const [color, setColor] = useState(counter?.color ?? '#14b8a6')
+  const [color, setColor] = useState(counter?.color ?? '#f59e0b')
   const [resetDaily, setResetDaily] = useState(counter?.reset_daily ?? false)
   const [saving, setSaving] = useState(false)
 
@@ -273,7 +273,7 @@ function CounterModal({ counter, onClose, onSave }: {
           <label className="flex items-center gap-3 cursor-pointer">
             <div
               onClick={() => setResetDaily(!resetDaily)}
-              className={cn('w-10 h-5 rounded-full transition-colors relative', resetDaily ? 'bg-teal-600' : 'bg-slate-700')}
+              className={cn('w-10 h-5 rounded-full transition-colors relative', resetDaily ? 'bg-amber-600' : 'bg-slate-700')}
             >
               <div className={cn('absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform', resetDaily ? 'left-5' : 'left-0.5')} />
             </div>

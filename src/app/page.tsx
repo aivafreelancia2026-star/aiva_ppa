@@ -19,8 +19,8 @@ const DEMO_MESSAGES = [
 
 const COMMAND_EXAMPLES = [
   {
-    category: 'Tasks', key: 'tasks', icon: CheckSquare, color: '#14b8a6',
-    bg: 'rgba(20,184,166,0.10)', border: 'rgba(20,184,166,0.30)',
+    category: 'Tasks', key: 'tasks', icon: CheckSquare, color: '#f59e0b',
+    bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.30)',
     commands: [
       'Add task "Review project proposal" high priority due tomorrow',
       "Show me today's incomplete tasks",
@@ -57,12 +57,12 @@ const COMMAND_EXAMPLES = [
 ]
 
 const FEATURES = [
-  { icon: CheckSquare, label: 'Task Manager',       desc: 'Full CRUD with priorities, categories, and smart due dates',  color: '#14b8a6', glow: 'rgba(20,184,166,0.25)', num: '01' },
+  { icon: CheckSquare, label: 'Task Manager',       desc: 'Full CRUD with priorities, categories, and smart due dates',  color: '#f59e0b', glow: 'rgba(245,158,11,0.25)', num: '01' },
   { icon: ShoppingCart, label: 'Shopping List',      desc: 'Add items naturally. "Add 2kg rice" just works.',              color: '#06b6d4', glow: 'rgba(6,182,212,0.25)',  num: '02' },
   { icon: BarChart3,    label: 'Counters & Trackers',desc: 'Track water, exercise, habits, expenses — anything.',          color: '#10b981', glow: 'rgba(16,185,129,0.25)',num: '03' },
   { icon: Bell,         label: 'Smart Reminders',    desc: 'One-time or recurring. Natural language scheduling.',          color: '#f59e0b', glow: 'rgba(245,158,11,0.25)',num: '04' },
   { icon: MessageSquare,label: 'AI Chat Agent',      desc: 'Execute multiple actions from a single message.',              color: '#ec4899', glow: 'rgba(236,72,153,0.25)',num: '05' },
-  { icon: Brain,        label: 'Multi-Model AI',     desc: 'Choose GPT-4o, Gemini, or Claude — all in one place.',        color: '#14b8a6', glow: 'rgba(20,184,166,0.25)',num: '06' },
+  { icon: Brain,        label: 'Multi-Model AI',     desc: 'Choose GPT-4o, Gemini, or Claude — all in one place.',        color: '#f59e0b', glow: 'rgba(245,158,11,0.25)',num: '06' },
 ]
 
 const MODELS = [
@@ -133,18 +133,18 @@ export default function LandingPage() {
   }, [])
 
   // Computed colors that adapt per mode
-  const badgeTextColor  = isDark ? '#5eead4' : '#0d9488'
-  const pillTextColor   = isDark ? '#2dd4bf'  : '#0d9488'
-  const pillBg          = isDark ? 'rgba(20,184,166,0.07)'  : 'rgba(13,148,136,0.06)'
-  const pillBorder      = isDark ? 'rgba(20,184,166,0.15)'  : 'rgba(13,148,136,0.18)'
-  const badgeBg         = isDark ? 'rgba(20,184,166,0.10)'  : 'rgba(13,148,136,0.07)'
-  const badgeBorder     = isDark ? 'rgba(20,184,166,0.22)'  : 'rgba(13,148,136,0.22)'
-  const navBg           = isDark ? 'rgb(5 8 14 / 0.88)'     : 'rgb(248 250 252 / 0.90)'
-  const navBorder       = isDark ? 'rgba(20,184,166,0.07)'  : 'rgba(13,148,136,0.10)'
-  const inputBg         = isDark ? 'rgb(5 8 14 / 0.85)'     : 'rgb(243 239 230 / 0.90)'
+  const badgeTextColor  = isDark ? '#fcd34d' : '#b45309'
+  const pillTextColor   = isDark ? '#fbbf24'  : '#b45309'
+  const pillBg          = isDark ? 'rgba(245,158,11,0.07)'  : 'rgba(180,83,9,0.06)'
+  const pillBorder      = isDark ? 'rgba(245,158,11,0.15)'  : 'rgba(180,83,9,0.18)'
+  const badgeBg         = isDark ? 'rgba(245,158,11,0.10)'  : 'rgba(180,83,9,0.07)'
+  const badgeBorder     = isDark ? 'rgba(245,158,11,0.22)'  : 'rgba(180,83,9,0.22)'
+  const navBg           = isDark ? 'rgb(28 21 16 / 0.88)'   : 'rgb(250 246 239 / 0.90)'
+  const navBorder       = isDark ? 'rgba(245,158,11,0.07)'  : 'rgba(180,83,9,0.10)'
+  const inputBg         = isDark ? 'rgb(28 21 16 / 0.85)'   : 'rgb(240 232 216 / 0.90)'
   const monoBarBg       = isDark ? 'rgba(0,0,0,0.35)'       : 'rgba(0,0,0,0.05)'
-  const windowChromeBg  = isDark ? 'rgba(20,184,166,0.03)'  : 'rgba(13,148,136,0.02)'
-  const windowChromeBrd = isDark ? 'rgba(20,184,166,0.08)'  : 'rgba(13,148,136,0.10)'
+  const windowChromeBg  = isDark ? 'rgba(245,158,11,0.03)'  : 'rgba(180,83,9,0.02)'
+  const windowChromeBrd = isDark ? 'rgba(245,158,11,0.08)'  : 'rgba(180,83,9,0.10)'
   const statLabelColor  = isDark ? '#475569' : '#94a3b8'
 
   return (
@@ -154,8 +154,8 @@ export default function LandingPage() {
     >
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="orb w-[700px] h-[700px] bg-teal-500/20 top-[-250px] left-[-180px]" />
-        <div className="orb w-[500px] h-[500px] bg-teal-600/15 bottom-[-200px] right-[-120px]" />
+        <div className="orb w-[700px] h-[700px] bg-amber-500/20 top-[-250px] left-[-180px]" />
+        <div className="orb w-[500px] h-[500px] bg-amber-700/15 bottom-[-200px] right-[-120px]" />
         <div className="orb w-[300px] h-[300px] bg-cyan-600/10 top-[45%] left-[45%]" />
         <div className="bg-grid absolute inset-0 opacity-100" />
       </div>
@@ -166,7 +166,7 @@ export default function LandingPage() {
         style={{ background: navBg, backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', borderBottom: `1px solid ${navBorder}` }}
       >
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)' }}>
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)' }}>
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -179,7 +179,7 @@ export default function LandingPage() {
           {[['Features', '#features'], ['How It Works', '#how-it-works'], ['Demo', '#demo'], ['AI Models', '#ai-models']].map(([label, href]) => (
             <a key={label} href={href} className="relative group py-1 hover:text-[rgb(var(--text-primary))] transition-colors duration-200">
               {label}
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-teal-500 group-hover:w-full transition-all duration-300 rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-amber-500 group-hover:w-full transition-all duration-300 rounded-full" />
             </a>
           ))}
         </div>
@@ -235,7 +235,7 @@ export default function LandingPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 tracking-widest uppercase"
             style={{ background: badgeBg, border: `1px solid ${badgeBorder}`, color: badgeTextColor }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Multi-Model AI · GPT-4o · Gemini · Claude 3.5
           </motion.div>
 
@@ -302,8 +302,8 @@ export default function LandingPage() {
             <div
               className="glass-card overflow-hidden rounded-2xl"
               style={{ boxShadow: isDark
-                ? '0 0 80px rgba(20,184,166,0.12), 0 0 1px rgba(20,184,166,0.25)'
-                : '0 4px 24px rgba(13,148,136,0.10), 0 0 0 1px rgba(13,148,136,0.08)'
+                ? '0 0 80px rgba(245,158,11,0.12), 0 0 1px rgba(245,158,11,0.25)'
+                : '0 4px 24px rgba(180,83,9,0.10), 0 0 0 1px rgba(180,83,9,0.08)'
               }}
             >
               {/* Window chrome */}
@@ -359,13 +359,13 @@ export default function LandingPage() {
                     <div className="flex items-start gap-3">
                       <div
                         className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)', boxShadow: '0 0 18px rgba(20,184,166,0.35)' }}
+                        style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)', boxShadow: '0 0 18px rgba(245,158,11,0.35)' }}
                       >
                         <Brain className="w-4 h-4 text-white" />
                       </div>
                       <div className="chat-ai px-4 py-3 max-w-[82%] text-sm whitespace-pre-wrap">
                         {aiResponse}
-                        {isTyping && <span className="inline-block w-1.5 h-4 bg-teal-400 ml-0.5 animate-pulse rounded-sm" />}
+                        {isTyping && <span className="inline-block w-1.5 h-4 bg-amber-400 ml-0.5 animate-pulse rounded-sm" />}
                       </div>
                     </div>
                   </motion.div>
@@ -386,7 +386,7 @@ export default function LandingPage() {
                     className="rounded-full transition-all duration-300"
                     style={{
                       width: i === demoIdx ? 20 : 6, height: 6,
-                      background: i === demoIdx ? '#14b8a6' : 'rgba(20,184,166,0.22)',
+                      background: i === demoIdx ? '#f59e0b' : 'rgba(245,158,11,0.22)',
                     }}
                   />
                 ))}
@@ -406,7 +406,7 @@ export default function LandingPage() {
                   />
                   <button
                     className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)' }}
+                    style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)' }}
                   >
                     <Send className="w-3.5 h-3.5 text-white" />
                   </button>
@@ -503,7 +503,7 @@ export default function LandingPage() {
         <div className="grid lg:grid-cols-3 gap-6 relative">
           <div
             className="hidden lg:block absolute top-10 left-[calc(33.33%_+_12px)] right-[calc(33.33%_+_12px)] h-px"
-            style={{ background: 'linear-gradient(90deg, rgba(20,184,166,0.35), rgba(20,184,166,0.35))' }}
+            style={{ background: 'linear-gradient(90deg, rgba(245,158,11,0.30), rgba(245,158,11,0.30))' }}
           />
           {STEPS.map((step, i) => (
             <motion.div
@@ -516,16 +516,16 @@ export default function LandingPage() {
               <div className="glass-card p-8 h-full relative overflow-hidden group">
                 <div
                   className="absolute top-4 right-4 text-7xl font-black leading-none pointer-events-none select-none transition-opacity duration-500 group-hover:opacity-60"
-                  style={{ color: 'rgba(20,184,166,0.07)', fontVariantNumeric: 'tabular-nums' }}
+                  style={{ color: 'rgba(245,158,11,0.07)', fontVariantNumeric: 'tabular-nums' }}
                 >
                   {step.n}
                 </div>
                 <div className="relative z-10">
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                    style={{ background: 'rgba(20,184,166,0.10)', border: '1px solid rgba(20,184,166,0.20)' }}
+                    style={{ background: 'rgba(245,158,11,0.10)', border: '1px solid rgba(245,158,11,0.20)' }}
                   >
-                    <step.icon className="w-5 h-5 text-teal-500" />
+                    <step.icon className="w-5 h-5 text-amber-500" />
                   </div>
                   <h3 className="text-xl font-black mb-2 tracking-tight">{step.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: 'rgb(var(--text-secondary))' }}>{step.desc}</p>
@@ -633,8 +633,8 @@ export default function LandingPage() {
       {/* ── CTA ── */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 lg:px-20 py-24 text-center">
         <div className="glass-card p-16 relative overflow-hidden">
-          <div className="orb w-[400px] h-[400px] bg-teal-500/20 top-[-150px] left-[-100px]" />
-          <div className="orb w-[300px] h-[300px] bg-cyan-600/15 bottom-[-100px] right-[-80px]" />
+          <div className="orb w-[400px] h-[400px] bg-amber-500/20 top-[-150px] left-[-100px]" />
+          <div className="orb w-[300px] h-[300px] bg-amber-700/15 bottom-[-100px] right-[-80px]" />
           <div className="relative z-10">
             <h2 className="text-4xl lg:text-6xl font-black mb-5 tracking-tight leading-tight">
               Ready to be more{' '}
@@ -666,12 +666,12 @@ export default function LandingPage() {
       <footer className="relative z-10 px-6 lg:px-20 py-10" style={{ borderTop: '1px solid rgba(var(--border), 0.08)' }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)' }}>
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)' }}>
               <Brain className="w-4 h-4 text-white" />
             </div>
             <span className="text-sm" style={{ color: 'rgb(var(--text-muted))' }}>
               AIVA AI · Built by{' '}
-              <a href="https://aivafreelancia.com" className="text-teal-500 hover:text-teal-400 transition-colors">
+              <a href="https://aivafreelancia.com" className="text-amber-600 hover:text-amber-500 transition-colors">
                 AIVA Freelancia
               </a>
             </span>

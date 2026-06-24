@@ -64,8 +64,8 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden" style={{ background: 'rgb(var(--bg-primary))' }}>
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="orb w-[500px] h-[500px] bg-teal-500/20 top-[-150px] left-[-150px]" />
-        <div className="orb w-[400px] h-[400px] bg-teal-600/15 bottom-[-100px] right-[-100px]" />
+        <div className="orb w-[500px] h-[500px] bg-amber-500/20 top-[-150px] left-[-150px]" />
+        <div className="orb w-[400px] h-[400px] bg-amber-700/15 bottom-[-100px] right-[-100px]" />
         <div className="bg-grid absolute inset-0 opacity-20" />
       </div>
 
@@ -83,7 +83,7 @@ export default function LoginPage() {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-              style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)', boxShadow: '0 0 30px rgba(20,184,166,0.4)' }}>
+              style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)', boxShadow: '0 0 30px rgba(245,158,11,0.4)' }}>
               <Brain className="w-7 h-7 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-theme-primary">
@@ -168,7 +168,7 @@ export default function LoginPage() {
 
             {mode === 'login' && (
               <div className="text-right">
-                <a href="#" className="text-xs text-teal-400 hover:text-teal-300">Forgot password?</a>
+                <a href="#" className="text-xs text-amber-600 hover:text-amber-500">Forgot password?</a>
               </div>
             )}
 
@@ -187,7 +187,7 @@ export default function LoginPage() {
             {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
             <button
               onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-              className="text-teal-400 hover:text-teal-300 font-medium"
+              className="text-amber-600 hover:text-amber-500 font-medium"
             >
               {mode === 'login' ? 'Sign up' : 'Sign in'}
             </button>

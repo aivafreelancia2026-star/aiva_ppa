@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    /* ── Light mode ── */
-    --bg-primary:   250 248 243; /* warm cream */
-    --bg-secondary: 255 253 248; /* cream white panels */
-    --bg-tertiary:  243 239 230; /* cream elevated */
-    --accent-purple: 13 148 136; /* teal-600 */
-    --accent-violet: 20 184 166; /* teal-500 */
-    --accent-cyan:    5 150 105; /* emerald-600 */
-    --text-primary:  15  23  42; /* slate-900 */
-    --text-secondary: 71  85 105; /* slate-600 */
-    --text-muted:   148 163 184; /* slate-400 */
-    --border:        13 148 136;
-    --border-opacity: 0.12;
+    /* ── Light mode (Ember & Ash) ── */
+    --bg-primary:   250 246 239; /* warm parchment */
+    --bg-secondary: 247 241 230; /* parchment panel */
+    --bg-tertiary:  240 232 216; /* warm elevated */
+    --accent-purple: 180  83   9; /* amber-700 */
+    --accent-violet: 217 119   6; /* amber-600 */
+    --accent-cyan:   146  64   0; /* amber-800 */
+    --text-primary:   44  29  14; /* warm near-black */
+    --text-secondary: 107  79  56; /* warm brown */
+    --text-muted:    160 128 112; /* muted warm */
+    --border:        180  83   9;
+    --border-opacity: 0.14;
     --border-hover-opacity: 0.28;
   }
 
   .dark {
-    /* ── Dark mode ── */
-    --bg-primary:    5   8  14; /* deep ocean void */
-    --bg-secondary: 11  17  27; /* dark ocean panel */
-    --bg-tertiary:  18  25  38; /* elevated ocean */
-    --accent-purple: 20 184 166; /* teal-500 */
-    --accent-violet: 45 212 191; /* teal-400 */
-    --accent-cyan:    5 150 105; /* emerald-600 */
-    --text-primary:  248 250 252; /* crisp white */
-    --text-secondary: 148 163 184; /* slate-400 */
-    --text-muted:    71  85 105; /* slate-600 */
-    --border:        20 184 166;
-    --border-opacity: 0.15;
-    --border-hover-opacity: 0.35;
+    /* ── Dark mode (Ember & Ash) ── */
+    --bg-primary:   28  21  16; /* deep warm charcoal */
+    --bg-secondary: 38  29  21; /* warm panel */
+    --bg-tertiary:  49  37  25; /* warm elevated */
+    --accent-purple: 245 158  11; /* amber-400 */
+    --accent-violet: 251 191  36; /* amber-300 */
+    --accent-cyan:   217 119   6; /* amber-600 */
+    --text-primary:  245 240 232; /* warm white */
+    --text-secondary: 196 176 154; /* warm taupe */
+    --text-muted:    138 112  96; /* muted warm */
+    --border:        245 158  11;
+    --border-opacity: 0.18;
+    --border-hover-opacity: 0.38;
   }
 
   * { box-sizing: border-box; }
@@ -104,7 +104,7 @@
 
   /* Gradient text — vivid on dark, deep on light */
   .gradient-text {
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 45%, #d97706 100%);
+    background: linear-gradient(135deg, #b45309 0%, #92400e 45%, #d97706 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -113,7 +113,7 @@
   }
 
   .dark .gradient-text {
-    background: linear-gradient(135deg, #5eead4 0%, #14b8a6 45%, #fbbf24 100%);
+    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 45%, #d97706 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,11 +135,11 @@
   /* Buttons */
   .btn-primary {
     @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300;
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
     box-shadow: 0 4px 20px rgba(var(--accent-purple), 0.25);
   }
   .btn-primary:hover {
-    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     box-shadow: 0 6px 30px rgba(var(--accent-purple), 0.4);
     transform: translateY(-1.5px);
   }
@@ -206,7 +206,7 @@
 
   /* Chat bubbles */
   .chat-user {
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
     color: white;
     border-radius: 18px 18px 4px 18px;
     box-shadow: 0 4px 15px rgba(var(--accent-purple), 0.15);

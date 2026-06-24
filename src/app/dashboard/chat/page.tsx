@@ -14,7 +14,7 @@ import remarkGfm from 'remark-gfm'
 import toast from 'react-hot-toast'
 
 const SUGGESTIONS = [
-  { icon: CheckSquare, text: 'Add task "Review proposal" due tomorrow, high priority', color: '#14b8a6' },
+  { icon: CheckSquare, text: 'Add task "Review proposal" due tomorrow, high priority', color: '#f59e0b' },
   { icon: ShoppingCart, text: 'Add milk, eggs, and 2kg rice to my shopping list', color: '#06b6d4' },
   { icon: BarChart3, text: 'Increase my water counter by 2', color: '#10b981' },
   { icon: Bell, text: 'Remind me to call mom at 8 PM today', color: '#f59e0b' },
@@ -154,7 +154,7 @@ export default function ChatPage() {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)', boxShadow: '0 0 20px rgba(20,184,166,0.3)' }}>
+            style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)', boxShadow: '0 0 20px rgba(245,158,11,0.3)' }}>
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -227,7 +227,7 @@ export default function ChatPage() {
           >
             <div>
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)', boxShadow: '0 0 40px rgba(20,184,166,0.4)' }}>
+                style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)', boxShadow: '0 0 40px rgba(245,158,11,0.4)' }}>
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-theme-primary mb-2">How can I help you today?</h3>
@@ -260,7 +260,7 @@ export default function ChatPage() {
               >
                 {msg.role === 'assistant' && (
                   <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-1"
-                    style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)' }}>
+                    style={{ background: 'linear-gradient(135deg, #f59e0b, #b45309)' }}>
                     <Brain className="w-4 h-4 text-white" />
                   </div>
                 )}
@@ -282,7 +282,7 @@ export default function ChatPage() {
                           p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
                           ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
                           ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
-                          code: ({ children }) => <code className="bg-black/30 px-1.5 py-0.5 rounded text-xs font-mono text-teal-300">{children}</code>,
+                          code: ({ children }) => <code className="bg-black/30 px-1.5 py-0.5 rounded text-xs font-mono text-amber-300">{children}</code>,
                           strong: ({ children }) => <strong className="text-theme-primary font-semibold">{children}</strong>,
                         }}
                       >
@@ -338,7 +338,7 @@ export default function ChatPage() {
             className={cn(
               'absolute right-3 bottom-3 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200',
               input.trim() && !loading
-                ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-500/30 hover:scale-110'
+                ? 'bg-gradient-to-br from-amber-600 to-amber-700 shadow-lg shadow-amber-500/30 hover:scale-110'
                 : 'bg-theme-elevated text-theme-muted/50 cursor-not-allowed'
             )}
           >

@@ -18,7 +18,7 @@ const FREQ_LABELS: Record<ReminderFrequency, string> = {
 }
 
 const FREQ_COLORS: Record<ReminderFrequency, string> = {
-  once: '#14b8a6', daily: '#06b6d4', weekly: '#10b981',
+  once: '#f59e0b', daily: '#d97706', weekly: '#10b981',
   monthly: '#f59e0b', hourly: '#ec4899', custom: '#f87171',
 }
 

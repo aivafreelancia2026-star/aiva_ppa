@@ -40,7 +40,7 @@ export default function SettingsPage() {
     setSaving(false)
   }
 
-  if (!user) return <div className="flex items-center justify-center h-48"><Loader2 className="w-6 h-6 animate-spin text-teal-400" /></div>
+  if (!user) return <div className="flex items-center justify-center h-48"><Loader2 className="w-6 h-6 animate-spin text-amber-500" /></div>
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
@@ -52,7 +52,7 @@ export default function SettingsPage() {
       {/* Profile */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-6">
         <div className="flex items-center gap-3 mb-5">
-          <User className="w-4 h-4 text-teal-400" />
+          <User className="w-4 h-4 text-amber-500" />
           <h2 className="font-semibold text-theme-primary">Profile</h2>
         </div>
         <div className="space-y-4">
@@ -70,7 +70,7 @@ export default function SettingsPage() {
       {/* AI Model */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="glass-card p-6">
         <div className="flex items-center gap-3 mb-5">
-          <Brain className="w-4 h-4 text-teal-400" />
+          <Brain className="w-4 h-4 text-amber-500" />
           <h2 className="font-semibold text-theme-primary">Default AI Model</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -81,8 +81,8 @@ export default function SettingsPage() {
               className={cn(
                 'flex items-center gap-3 p-3 rounded-xl text-left transition-all',
                 model === id
-                  ? 'border-2 border-teal-500 bg-teal-500/10'
-                  : 'border border-theme-border hover:border-teal-500/30 hover:bg-theme-elevated'
+                  ? 'border-2 border-amber-500 bg-amber-500/10'
+                  : 'border border-theme-border hover:border-amber-500/30 hover:bg-theme-elevated'
               )}
             >
               <span className="text-2xl">{cfg.icon}</span>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
                 <div className="text-sm font-medium text-theme-primary">{cfg.label}</div>
                 <div className="text-xs text-theme-secondary">{cfg.provider}</div>
               </div>
-              {model === id && <Check className="w-4 h-4 text-teal-400 flex-shrink-0" />}
+              {model === id && <Check className="w-4 h-4 text-amber-500 flex-shrink-0" />}
             </button>
           ))}
         </div>
@@ -114,7 +114,7 @@ export default function SettingsPage() {
                 <div className="text-sm text-theme-primary">{item.label}</div>
                 <div className="text-xs text-theme-secondary">{item.desc}</div>
               </div>
-              <div className="w-10 h-5 rounded-full bg-teal-600 relative cursor-pointer">
+              <div className="w-10 h-5 rounded-full bg-amber-600 relative cursor-pointer">
                 <div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-white" />
               </div>
             </div>

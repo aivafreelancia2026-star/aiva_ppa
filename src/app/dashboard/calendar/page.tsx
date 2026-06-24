@@ -169,7 +169,7 @@ export default function CalendarPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-theme-primary flex items-center gap-2.5">
-            <CalendarIcon className="w-6 h-6 text-teal-400" /> Calendar
+            <CalendarIcon className="w-6 h-6 text-amber-500" /> Calendar
           </h1>
           <p className="text-theme-secondary text-sm mt-0.5">Visualize and organize your timeline</p>
         </div>
@@ -181,9 +181,9 @@ export default function CalendarPage() {
               type="checkbox"
               checked={showTasks}
               onChange={e => setShowTasks(e.target.checked)}
-              className="rounded border-slate-700 bg-slate-900 text-teal-600 focus:ring-teal-500"
+              className="rounded border-slate-700 bg-slate-900 text-amber-600 focus:ring-amber-500"
             />
-            <CheckSquare className="w-3.5 h-3.5 text-teal-400" />
+            <CheckSquare className="w-3.5 h-3.5 text-amber-500" />
             Tasks
           </label>
           <label className="flex items-center gap-2 bg-theme-elevated border border-theme-border px-3.5 py-1.5 rounded-xl text-xs font-medium text-theme-secondary cursor-pointer hover:bg-theme-elevated/80 transition-colors">
@@ -201,7 +201,7 @@ export default function CalendarPage() {
 
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
-          <Loader2 className="w-8 h-8 animate-spin text-teal-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-amber-400" />
           <span>Loading calendar...</span>
         </div>
       ) : (
@@ -263,7 +263,7 @@ export default function CalendarPage() {
                      className={cn(
                       "min-h-[70px] sm:min-h-[90px] p-2 flex flex-col items-start justify-between rounded-xl transition-all duration-200 border text-left relative overflow-hidden group",
                       isSelected
-                        ? "bg-teal-900/30 border-teal-500/50 shadow-[0_0_15px_rgba(20,184,166,0.15)]"
+                        ? "bg-amber-950/20 border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.15)]"
                         : isCurrentMonth
                           ? "bg-theme-panel border-theme-border hover:bg-theme-elevated text-theme-primary"
                           : "bg-transparent border-transparent text-theme-muted hover:bg-theme-elevated/40"
@@ -273,9 +273,9 @@ export default function CalendarPage() {
                     <span className={cn(
                       "text-xs font-semibold px-2 py-0.5 rounded-md",
                       isTodayDate
-                        ? "bg-teal-500 text-white"
+                        ? "bg-amber-500 text-white"
                         : isSelected
-                          ? "text-teal-400"
+                          ? "text-amber-500"
                           : "text-theme-secondary"
                     )}>
                       {format(day, 'd')}
@@ -292,7 +292,7 @@ export default function CalendarPage() {
                               "text-[10px] px-1.5 py-0.5 rounded font-medium truncate flex items-center gap-1",
                               task.status === 'completed'
                                 ? "bg-emerald-500/10 text-emerald-400 line-through"
-                                : "bg-teal-500/10 text-teal-300"
+                                : "bg-amber-500/10 text-amber-300"
                             )}
                           >
                             <CheckSquare className="w-2.5 h-2.5 flex-shrink-0" />
@@ -319,7 +319,7 @@ export default function CalendarPage() {
                       {/* Mobile Dots */}
                       <div className="flex sm:hidden items-center justify-center gap-1 w-full pt-1">
                         {dayTasks.length > 0 && (
-                          <div className={cn("w-1.5 h-1.5 rounded-full", dayTasks.every(t => t.status === 'completed') ? "bg-emerald-500" : "bg-teal-500")} />
+                          <div className={cn("w-1.5 h-1.5 rounded-full", dayTasks.every(t => t.status === 'completed') ? "bg-emerald-500" : "bg-amber-500")} />
                         )}
                         {dayReminders.length > 0 && (
                           <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
@@ -404,7 +404,7 @@ export default function CalendarPage() {
                           "w-4 h-4 rounded-md border flex items-center justify-center flex-shrink-0 transition-colors",
                           task.status === 'completed'
                             ? "bg-emerald-500 border-emerald-500"
-                            : "border-slate-500 group-hover:border-teal-400"
+                            : "border-slate-500 group-hover:border-amber-400"
                         )}>
                           {task.status === 'completed' && <Check className="w-3 h-3 text-white" />}
                         </div>
@@ -415,7 +415,7 @@ export default function CalendarPage() {
                           "text-[9px] font-semibold px-2 py-0.5 rounded capitalize",
                           task.priority === 'urgent' && "bg-rose-500/10 text-rose-400",
                           task.priority === 'high' && "bg-amber-500/10 text-amber-400",
-                          task.priority === 'medium' && "bg-teal-500/10 text-teal-400",
+                          task.priority === 'medium' && "bg-amber-500/10 text-amber-500",
                           task.priority === 'low' && "bg-theme-elevated text-theme-secondary"
                         )}>
                           {task.priority}

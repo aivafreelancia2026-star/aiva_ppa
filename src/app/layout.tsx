@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#07070f' },
-    { media: '(prefers-color-scheme: light)', color: '#faf8f3' },
+    { media: '(prefers-color-scheme: dark)', color: '#1c1510' },
+    { media: '(prefers-color-scheme: light)', color: '#faf6ef' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               borderRadius: '12px',
               fontSize: '14px',
             },
-            success: { iconTheme: { primary: '#14b8a6', secondary: 'transparent' } },
+            success: { iconTheme: { primary: '#f59e0b', secondary: 'transparent' } },
             error: { iconTheme: { primary: '#f87171', secondary: 'transparent' } },
           }}
         />
