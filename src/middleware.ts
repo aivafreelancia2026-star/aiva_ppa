@@ -38,11 +38,15 @@ export async function middleware(request: NextRequest) {
   const isDashboard = pathname.startsWith('/dashboard')
 
   if (isDashboard && !user) {
-    return NextResponse.redirect(new URL('/auth/login', request.url))
+    const url = request.nextUrl.clone()
+    url.pathname = '/auth/login'
+    return NextResponse.redirect(url)
   }
 
   if (isAuthPage && user) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
+    const url = request.nextUrl.clone()
+    url.pathname = '/dashboard'
+    return NextResponse.redirect(url)
   }
 
   return supabaseResponse

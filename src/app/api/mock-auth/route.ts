@@ -70,6 +70,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: { message: 'Invalid auth action' } }, { status: 400 })
   } catch (err: any) {
+    console.error('MOCK AUTH ERROR:', err)
     return NextResponse.json({ data: null, error: { message: err.message } }, { status: 500 })
   }
 }
