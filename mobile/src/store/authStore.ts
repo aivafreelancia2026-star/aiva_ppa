@@ -21,6 +21,8 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => {
   supabase.auth.getSession().then(({ data }) => {
     set({ user: data.session?.user ?? null, session: data.session, loading: false })
+  }).catch(() => {
+    set({ user: null, session: null, loading: false })
   })
 
   supabase.auth.onAuthStateChange((_event, session) => {

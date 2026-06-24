@@ -8,7 +8,7 @@ import { StatusBar } from 'expo-status-bar'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 
 import DashboardScreen from './src/screens/DashboardScreen'
 import ChatScreen from './src/screens/ChatScreen'
@@ -89,7 +89,11 @@ export default function App() {
     registerForPushNotifications()
   }, [])
 
-  if (loading) return null
+  if (loading) return (
+    <View style={{ flex: 1, backgroundColor: THEME.bg, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color={THEME.purple} />
+    </View>
+  )
 
   return (
     <GestureHandlerRootView style={styles.root}>

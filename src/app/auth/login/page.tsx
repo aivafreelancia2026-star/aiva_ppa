@@ -26,7 +26,10 @@ export default function LoginPage() {
       if (mode === 'signup') {
         const { error } = await supabase.auth.signUp({
           email, password,
-          options: { data: { name, full_name: name } },
+          options: { 
+            data: { name, full_name: name },
+            emailRedirectTo: `${window.location.origin}/ppa/auth/callback`
+          },
         })
         if (error) throw error
         toast.success('Account created! Check your email to confirm.')
@@ -48,7 +51,7 @@ export default function LoginPage() {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: `${window.location.origin}/auth/callback` },
+        options: { redirectTo: `${window.location.origin}/ppa/auth/callback` },
       })
       if (error) throw error
     } catch (err: unknown) {
