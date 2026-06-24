@@ -91,7 +91,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="px-4 py-5 border-b border-theme-border">
         <Link href="/dashboard" className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #6366F1, #4338CA)', boxShadow: '0 0 20px rgba(99,102,241,0.4)' }}>
+            style={{ background: 'linear-gradient(135deg, #14b8a6, #0d9488)', boxShadow: '0 0 20px rgba(20,184,166,0.4)' }}>
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -153,7 +153,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-theme-secondary hover:text-theme-primary hover:bg-theme-elevated transition-all"
             >
               <div className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0 text-white"
-                style={{ background: 'linear-gradient(135deg, #6366F1, #4338CA)' }}>
+                style={{ background: 'linear-gradient(135deg, #14b8a6, #0d9488)' }}>
                 {user.name[0].toUpperCase()}
               </div>
               <div className="flex-1 text-left min-w-0">
@@ -259,7 +259,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             {user && (
               <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-white"
-                style={{ background: 'linear-gradient(135deg, #6366F1, #4338CA)' }}>
+                style={{ background: 'linear-gradient(135deg, #14b8a6, #0d9488)' }}>
                 {user.name[0].toUpperCase()}
               </div>
             )}

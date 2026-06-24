@@ -6,32 +6,33 @@
 
 @layer base {
   :root {
-    --bg-primary: 248 250 252; /* Clean Light SaaS background */
-    --bg-secondary: 255 255 255; /* White Panels */
-    --bg-tertiary: 241 245 249; /* Slate 100 */
-    --accent-purple: 79 70 229; /* Clean Indigo */
-    --accent-violet: 99 102 241; /* Accent Violet */
-    --accent-cyan: 5 150 105; /* Accent Emerald Green */
-    --text-primary: 15 23 42; /* Slate 900 */
-    --text-secondary: 71 85 105; /* Slate 600 */
-    --text-muted: 148 163 184; /* Slate 400 */
-    --border: 99 102 241;
+    /* ── Light mode ── */
+    --bg-primary:   250 248 243; /* warm cream */
+    --bg-secondary: 255 253 248; /* cream white panels */
+    --bg-tertiary:  243 239 230; /* cream elevated */
+    --accent-purple: 13 148 136; /* teal-600 */
+    --accent-violet: 20 184 166; /* teal-500 */
+    --accent-cyan:    5 150 105; /* emerald-600 */
+    --text-primary:  15  23  42; /* slate-900 */
+    --text-secondary: 71  85 105; /* slate-600 */
+    --text-muted:   148 163 184; /* slate-400 */
+    --border:        13 148 136;
     --border-opacity: 0.12;
-    --border-hover-opacity: 0.25;
+    --border-hover-opacity: 0.28;
   }
 
-  /* When .dark class is on the html/body element */
   .dark {
-    --bg-primary: 7 7 15; /* Midnight Indigo Void background */
-    --bg-secondary: 14 15 33; /* Deep Indigo panel background */
-    --bg-tertiary: 22 23 48; /* Elevated Indigo panel background */
-    --accent-purple: 99 102 241; /* Professional SaaS Indigo */
-    --accent-violet: 129 140 248; /* Secondary light Indigo */
-    --accent-cyan: 5 150 105; /* Accent Emerald Green */
-    --text-primary: 248 250 252; /* Crisp white */
-    --text-secondary: 148 163 184; /* Cool slate */
-    --text-muted: 71 85 105; /* Muted slate */
-    --border: 99 102 241;
+    /* ── Dark mode ── */
+    --bg-primary:    5   8  14; /* deep ocean void */
+    --bg-secondary: 11  17  27; /* dark ocean panel */
+    --bg-tertiary:  18  25  38; /* elevated ocean */
+    --accent-purple: 20 184 166; /* teal-500 */
+    --accent-violet: 45 212 191; /* teal-400 */
+    --accent-cyan:    5 150 105; /* emerald-600 */
+    --text-primary:  248 250 252; /* crisp white */
+    --text-secondary: 148 163 184; /* slate-400 */
+    --text-muted:    71  85 105; /* slate-600 */
+    --border:        20 184 166;
     --border-opacity: 0.15;
     --border-hover-opacity: 0.35;
   }
@@ -49,7 +50,7 @@
     color: rgb(var(--text-primary));
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     min-height: 100dvh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   ::selection {
@@ -59,17 +60,16 @@
 
   ::-webkit-scrollbar { width: 5px; height: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: rgba(var(--border), var(--border-opacity)); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--border), var(--border-opacity));
+    border-radius: 9999px;
+  }
   ::-webkit-scrollbar-thumb:hover { background: rgb(var(--accent-purple)); }
 }
 
 @layer components {
-  /* Frosted Glassmorphism */
-  .glass {
-    background: rgb(var(--bg-secondary));
-    border: 1px solid rgba(var(--border), var(--border-opacity));
-  }
-
+  /* Glassmorphism */
+  .glass,
   .glass-strong {
     background: rgb(var(--bg-secondary));
     border: 1px solid rgba(var(--border), var(--border-opacity));
@@ -80,28 +80,49 @@
     border: 1px solid rgba(var(--border), var(--border-opacity));
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
   }
 
   .dark .glass-card {
-    background: linear-gradient(135deg, rgba(var(--accent-purple), 0.08) 0%, rgba(var(--accent-cyan), 0.03) 100%);
+    background: linear-gradient(135deg, rgba(var(--accent-purple), 0.06) 0%, rgba(11,17,27,0.96) 100%);
+    backdrop-filter: blur(12px);
+    box-shadow: none;
   }
 
   .glass-card:hover {
     border-color: rgba(var(--border), var(--border-hover-opacity));
-    box-shadow: 0 12px 40px rgba(var(--accent-purple), 0.08);
     transform: translateY(-2px);
   }
 
-  .dark .glass-card:hover {
-    box-shadow: 0 12px 40px rgba(var(--accent-purple), 0.15), 0 0 2px rgba(var(--accent-cyan), 0.2) inset;
+  .glass-card:hover {
+    box-shadow: 0 8px 32px rgba(var(--accent-purple), 0.10), 0 2px 8px rgba(0,0,0,0.06);
   }
 
-  /* Radiant Gradient text */
+  .dark .glass-card:hover {
+    box-shadow: 0 16px 48px rgba(var(--accent-purple), 0.12), 0 0 0 1px rgba(var(--accent-purple), 0.12) inset;
+  }
+
+  /* Gradient text — vivid on dark, deep on light */
   .gradient-text {
-    background: linear-gradient(135deg, rgb(var(--accent-purple)) 0%, rgb(var(--accent-violet)) 50%, rgb(var(--accent-cyan)) 100%);
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 45%, #d97706 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% auto;
+    animation: gradient-shift 7s ease-in-out infinite alternate;
+  }
+
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #5eead4 0%, #14b8a6 45%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+  }
+
+  @keyframes gradient-shift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
   }
 
   .gradient-text-purple {
@@ -114,11 +135,11 @@
   /* Buttons */
   .btn-primary {
     @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300;
-    background: linear-gradient(135deg, rgb(var(--accent-purple)) 0%, #4338CA 100%);
-    box-shadow: 0 4px 20px rgba(var(--accent-purple), 0.2);
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    box-shadow: 0 4px 20px rgba(var(--accent-purple), 0.25);
   }
   .btn-primary:hover {
-    background: linear-gradient(135deg, rgb(var(--accent-violet)) 0%, #4f46e5 100%);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     box-shadow: 0 6px 30px rgba(var(--accent-purple), 0.4);
     transform: translateY(-1.5px);
   }
@@ -126,12 +147,12 @@
 
   .btn-secondary {
     @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300;
-    background: rgba(var(--accent-purple), 0.05);
+    background: rgba(var(--accent-purple), 0.06);
     border: 1px solid rgba(var(--border), var(--border-opacity));
     color: rgb(var(--text-primary));
   }
   .btn-secondary:hover {
-    background: rgba(var(--accent-purple), 0.1);
+    background: rgba(var(--accent-purple), 0.12);
     border-color: rgba(var(--border), var(--border-hover-opacity));
     transform: translateY(-1px);
   }
@@ -158,21 +179,20 @@
     border-radius: inherit;
   }
 
-  /* Glow orbs - visible in dark mode */
+  /* Glow orbs — toned down in light mode */
   .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     pointer-events: none;
-    opacity: 0.25;
+    opacity: 0.20;
     transition: opacity 0.3s ease;
   }
-
   .dark .orb {
-    opacity: 0.75;
+    opacity: 0.65;
   }
 
-  /* Sidebar active */
+  /* Sidebar active nav item */
   .nav-active {
     background: rgb(var(--bg-tertiary));
     border: 1px solid rgba(var(--border), var(--border-opacity));
@@ -184,12 +204,12 @@
     @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
   }
 
-  /* Chat bubble */
+  /* Chat bubbles */
   .chat-user {
-    background: linear-gradient(135deg, rgb(var(--accent-purple)) 0%, #4338CA 100%);
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
     color: white;
     border-radius: 18px 18px 4px 18px;
-    box-shadow: 0 4px 15px rgba(var(--accent-purple), 0.1);
+    box-shadow: 0 4px 15px rgba(var(--accent-purple), 0.15);
   }
   .chat-ai {
     background: rgb(var(--bg-tertiary));
@@ -200,21 +220,43 @@
 
   /* Shimmer loading */
   .shimmer {
-    background: linear-gradient(90deg, rgba(var(--accent-purple), 0.06) 25%, rgba(var(--accent-purple), 0.15) 50%, rgba(var(--accent-purple), 0.06) 75%);
+    background: linear-gradient(90deg,
+      rgba(var(--accent-purple), 0.06) 25%,
+      rgba(var(--accent-purple), 0.14) 50%,
+      rgba(var(--accent-purple), 0.06) 75%
+    );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
+  }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    @apply relative flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-300;
+    background: rgba(var(--accent-purple), 0.06);
+    border: 1px solid rgba(var(--border), var(--border-opacity));
+    color: rgb(var(--text-secondary));
+  }
+  .theme-toggle:hover {
+    background: rgba(var(--accent-purple), 0.12);
+    border-color: rgba(var(--border), var(--border-hover-opacity));
+    color: rgb(var(--text-primary));
   }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
 
-  /* Grid backgrounds */
+  /* Grid pattern */
   .bg-grid {
+    background-image:
+      linear-gradient(rgba(var(--accent-purple), 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--accent-purple), 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .dark .bg-grid {
     background-image:
       linear-gradient(rgba(var(--accent-purple), 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(var(--accent-purple), 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
   }
 
   .bg-dots {
@@ -223,7 +265,13 @@
   }
 }
 
-/* Custom Cursor styles */
+/* Keyframes */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Custom cursor */
 .custom-cursor-dot {
   position: fixed;
   width: 6px;
@@ -248,7 +296,8 @@
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .custom-cursor-dot, .custom-cursor-ring {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
     display: none !important;
   }
 }

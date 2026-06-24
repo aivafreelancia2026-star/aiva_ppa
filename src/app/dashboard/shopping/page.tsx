@@ -15,7 +15,7 @@ const CATEGORIES = ['Produce', 'Dairy', 'Meat', 'Bakery', 'Beverages', 'Snacks',
 
 const CATEGORY_COLORS: Record<string, string> = {
   Produce: '#10b981', Dairy: '#06b6d4', Meat: '#f87171', Bakery: '#f59e0b',
-  Beverages: '#8b5cf6', Snacks: '#ec4899', Household: '#64748b', 'Personal Care': '#a78bfa', Other: '#94a3b8',
+  Beverages: '#14b8a6', Snacks: '#ec4899', Household: '#64748b', 'Personal Care': '#2dd4bf', Other: '#94a3b8',
 }
 
 export default function ShoppingPage() {
@@ -107,10 +107,10 @@ export default function ShoppingPage() {
             <span>Shopping progress</span>
             <span>{purchasedCount}/{items.length}</span>
           </div>
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(139,92,246,0.1)' }}>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(20,184,166,0.1)' }}>
             <motion.div
               className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #7c3aed, #06b6d4)' }}
+              style={{ background: 'linear-gradient(90deg, #0d9488, #06b6d4)' }}
               initial={{ width: 0 }}
               animate={{ width: `${(purchasedCount / items.length) * 100}%` }}
               transition={{ duration: 0.5 }}
@@ -125,12 +125,12 @@ export default function ShoppingPage() {
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-secondary" />
           <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search items..." className="input-field pl-10 text-sm" />
         </div>
-        <div className="flex rounded-xl overflow-hidden border border-purple-500/20">
+        <div className="flex rounded-xl overflow-hidden border border-teal-500/20">
           {(['all', 'pending', 'purchased'] as const).map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={cn('px-4 py-2 text-xs font-medium capitalize transition-colors', filter === f ? 'bg-purple-600/30 text-purple-300' : 'text-theme-secondary hover:text-theme-primary')}
+              className={cn('px-4 py-2 text-xs font-medium capitalize transition-colors', filter === f ? 'bg-teal-600/30 text-teal-300' : 'text-theme-secondary hover:text-theme-primary')}
             >
               {f}
             </button>
@@ -154,7 +154,7 @@ export default function ShoppingPage() {
           {Object.entries(grouped).map(([category, catItems]) => (
             <div key={category}>
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ background: CATEGORY_COLORS[category] ?? '#8b5cf6' }} />
+                <div className="w-2 h-2 rounded-full" style={{ background: CATEGORY_COLORS[category] ?? '#14b8a6' }} />
                 <span className="text-xs font-medium text-theme-muted uppercase tracking-wider">{category}</span>
                 <span className="text-xs text-theme-secondary">{catItems.filter(i => !i.is_purchased).length} left</span>
               </div>
@@ -175,7 +175,7 @@ export default function ShoppingPage() {
                           'w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all',
                           item.is_purchased
                             ? 'bg-green-500 border-green-500'
-                            : 'border-slate-600 hover:border-cyan-400'
+                            : 'border-slate-600 hover:border-teal-400'
                         )}
                       >
                         {item.is_purchased && <Check className="w-3 h-3 text-white" />}

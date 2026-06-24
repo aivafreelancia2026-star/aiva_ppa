@@ -17,8 +17,8 @@ const STAT_CARDS = [
     label: 'Pending Tasks',
     key: 'tasks.pending' as const,
     icon: CheckSquare,
-    color: '#8b5cf6',
-    bg: 'rgba(139,92,246,0.1)',
+    color: '#14b8a6',
+    bg: 'rgba(20,184,166,0.1)',
     href: '/dashboard/tasks',
   },
   {
@@ -241,7 +241,7 @@ export default function DashboardPage() {
             </div>
             <div className="space-y-2">
               {[
-                { label: 'New Task', href: '/dashboard/tasks', icon: CheckSquare, color: '#8b5cf6' },
+                { label: 'New Task', href: '/dashboard/tasks', icon: CheckSquare, color: '#14b8a6' },
                 { label: 'Add to Shopping', href: '/dashboard/shopping', icon: ShoppingCart, color: '#06b6d4' },
                 { label: 'Set Reminder', href: '/dashboard/reminders', icon: Bell, color: '#f59e0b' },
                 { label: 'Track Counter', href: '/dashboard/counters', icon: BarChart3, color: '#10b981' },
@@ -266,7 +266,7 @@ export default function DashboardPage() {
       {/* AIVA Prompt Banner */}
       <motion.div variants={itemVariants}>
         <div className="relative overflow-hidden rounded-2xl p-6 bg-theme-panel border border-theme-border">
-          <div className="orb w-[200px] h-[200px] bg-violet-600/20 top-[-80px] right-[-50px]" />
+          <div className="orb w-[200px] h-[200px] bg-teal-500/20 top-[-80px] right-[-50px]" />
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 bg-accent-purple">
               <MessageSquare className="w-6 h-6 text-white" />

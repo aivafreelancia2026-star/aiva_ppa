@@ -31,9 +31,9 @@ const config: Config = {
           4: '#252540',
         },
         accent: {
-          purple: '#8b5cf6',
-          violet: '#7c3aed',
-          indigo: '#6366f1',
+          purple: '#14b8a6',
+          violet: '#2dd4bf',
+          indigo: '#0d9488',
           cyan: '#06b6d4',
           teal: '#14b8a6',
           pink: '#ec4899',
@@ -52,8 +52,8 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-gradient': 'linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(99,102,241,0.05) 100%)',
-        'purple-gradient': 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
+        'card-gradient': 'linear-gradient(135deg, rgba(20,184,166,0.1) 0%, rgba(13,148,136,0.05) 100%)',
+        'purple-gradient': 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
         'cyan-gradient': 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
       },
       animation: {
@@ -76,8 +76,8 @@ const config: Config = {
           '100%': { backgroundPosition: '200% 0' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(139,92,246,0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(139,92,246,0.6), 0 0 80px rgba(139,92,246,0.2)' },
+          '0%': { boxShadow: '0 0 20px rgba(20,184,166,0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(20,184,166,0.6), 0 0 80px rgba(20,184,166,0.2)' },
         },
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
@@ -100,9 +100,9 @@ const config: Config = {
         xs: '2px',
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(139,92,246,0.3)',
-        'glow': '0 0 20px rgba(139,92,246,0.4)',
-        'glow-lg': '0 0 40px rgba(139,92,246,0.5)',
+        'glow-sm': '0 0 10px rgba(20,184,166,0.3)',
+        'glow': '0 0 20px rgba(20,184,166,0.4)',
+        'glow-lg': '0 0 40px rgba(20,184,166,0.5)',
         'glow-cyan': '0 0 20px rgba(6,182,212,0.4)',
         'card': '0 4px 24px rgba(0,0,0,0.4)',
         'card-hover': '0 8px 40px rgba(0,0,0,0.6)',

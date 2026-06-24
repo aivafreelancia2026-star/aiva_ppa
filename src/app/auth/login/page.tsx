@@ -61,17 +61,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0f0f1a] flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden" style={{ background: 'rgb(var(--bg-primary))' }}>
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="orb w-[500px] h-[500px] bg-violet-600/20 top-[-150px] left-[-150px]" />
-        <div className="orb w-[400px] h-[400px] bg-indigo-600/15 bottom-[-100px] right-[-100px]" />
+        <div className="orb w-[500px] h-[500px] bg-teal-500/20 top-[-150px] left-[-150px]" />
+        <div className="orb w-[400px] h-[400px] bg-teal-600/15 bottom-[-100px] right-[-100px]" />
         <div className="bg-grid absolute inset-0 opacity-20" />
       </div>
 
       <div className="relative z-10 w-full max-w-md">
         {/* Back */}
-        <Link href="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-sm mb-8">
+        <Link href="/" className="inline-flex items-center gap-2 text-theme-muted hover:text-theme-primary transition-colors text-sm mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to home
         </Link>
 
@@ -83,13 +83,13 @@ export default function LoginPage() {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-              style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', boxShadow: '0 0 30px rgba(124,58,237,0.4)' }}>
+              style={{ background: 'linear-gradient(135deg, #14b8a6, #0f766e)', boxShadow: '0 0 30px rgba(20,184,166,0.4)' }}>
               <Brain className="w-7 h-7 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-white">
+            <h1 className="text-2xl font-bold text-theme-primary">
               {mode === 'login' ? 'Welcome back' : 'Create your account'}
             </h1>
-            <p className="text-slate-400 text-sm mt-1">
+            <p className="text-theme-secondary text-sm mt-1">
               {mode === 'login' ? 'Sign in to AIVA AI' : 'Join AIVA AI — your productivity companion'}
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function LoginPage() {
             onClick={handleGoogle}
             disabled={googleLoading}
             className="w-full flex items-center justify-center gap-3 py-3 rounded-xl font-medium text-sm transition-all duration-300 mb-6"
-            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#f8fafc' }}
+            style={{ background: 'rgba(var(--accent-purple), 0.06)', border: '1px solid rgba(var(--border), var(--border-opacity))', color: 'rgb(var(--text-primary))' }}
           >
             {googleLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Chrome className="w-4 h-4" />}
             Continue with Google
@@ -107,16 +107,16 @@ export default function LoginPage() {
 
           {/* Divider */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs text-slate-500">or email</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px" style={{ background: 'rgba(var(--border), var(--border-opacity))' }} />
+            <span className="text-xs text-theme-muted">or email</span>
+            <div className="flex-1 h-px" style={{ background: 'rgba(var(--border), var(--border-opacity))' }} />
           </div>
 
           {/* Form */}
           <form onSubmit={handleEmailAuth} className="space-y-4">
             {mode === 'signup' && (
               <div>
-                <label className="block text-xs text-slate-400 mb-1.5 font-medium">Full Name</label>
+                <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Full Name</label>
                 <input
                   type="text"
                   value={name}
@@ -129,9 +129,9 @@ export default function LoginPage() {
             )}
 
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Email</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Email</label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-muted" />
                 <input
                   type="email"
                   value={email}
@@ -144,9 +144,9 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 font-medium">Password</label>
+              <label className="block text-xs text-theme-secondary mb-1.5 font-medium">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-muted" />
                 <input
                   type={showPass ? 'text' : 'password'}
                   value={password}
@@ -159,7 +159,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-theme-muted hover:text-theme-secondary"
                 >
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -168,7 +168,7 @@ export default function LoginPage() {
 
             {mode === 'login' && (
               <div className="text-right">
-                <a href="#" className="text-xs text-purple-400 hover:text-purple-300">Forgot password?</a>
+                <a href="#" className="text-xs text-teal-400 hover:text-teal-300">Forgot password?</a>
               </div>
             )}
 
@@ -183,11 +183,11 @@ export default function LoginPage() {
           </form>
 
           {/* Toggle */}
-          <p className="text-center text-sm text-slate-400 mt-6">
+          <p className="text-center text-sm text-theme-secondary mt-6">
             {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
             <button
               onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-              className="text-purple-400 hover:text-purple-300 font-medium"
+              className="text-teal-400 hover:text-teal-300 font-medium"
             >
               {mode === 'login' ? 'Sign up' : 'Sign in'}
             </button>

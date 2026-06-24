@@ -168,7 +168,7 @@ export default function TasksPage() {
                           >
                             {task.status === 'completed'
                               ? <CheckCircle2 className="w-5 h-5 text-green-400" />
-                              : <Circle className="w-5 h-5 text-theme-secondary hover:text-accent-purple" />
+                              : <Circle className="w-5 h-5 text-theme-secondary hover:text-accent-teal" />
                             }
                           </button>
 
