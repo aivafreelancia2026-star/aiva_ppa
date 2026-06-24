@@ -37,10 +37,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const admin = await getFirebaseAdmin()
-    const message = {
+    const message: any = {
       token: profile.fcm_token,
       notification: { title, body },
-      data: url ? { url } : {},
+      data: url ? { url: String(url) } : undefined,
       webpush: {
         fcmOptions: { link: url ?? '/dashboard' },
         notification: {

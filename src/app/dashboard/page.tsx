@@ -89,8 +89,8 @@ export default function DashboardPage() {
       supabase.from('tasks').select('*').eq('user_id', user.id).eq('due_date', today).neq('status', 'completed').order('priority').limit(5),
     ])
 
-    const tasks = tasksRes.data ?? []
-    const shopping = shoppingRes.data ?? []
+    const tasks = (tasksRes.data ?? []) as { status: string }[]
+    const shopping = (shoppingRes.data ?? []) as { is_purchased: boolean }[]
 
     setStats({
       tasks: {

@@ -18,8 +18,8 @@ export async function GET() {
     supabase.from('tasks').select('id', { count: 'exact', head: true }).eq('user_id', user.id).eq('due_date', today).neq('status', 'completed'),
   ])
 
-  const taskData = tasks.data ?? []
-  const shoppingData = shopping.data ?? []
+  const taskData = (tasks.data ?? []) as { status: string }[]
+  const shoppingData = (shopping.data ?? []) as { is_purchased: boolean }[]
 
   const stats: DashboardStats = {
     tasks: {

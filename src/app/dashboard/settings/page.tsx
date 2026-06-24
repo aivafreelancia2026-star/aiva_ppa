@@ -16,8 +16,9 @@ export default function SettingsPage() {
   const supabase = createClient()
 
   useEffect(() => {
-    supabase.auth.getUser().then(async ({ data }) => {
-      if (!data.user) return
+    supabase.auth.getUser().then(async (res: any) => {
+      const data = res.data
+      if (!data || !data.user) return
       const { data: profile } = await supabase.from('users').select('*').eq('id', data.user.id).single()
       const u = {
         name: profile?.name ?? data.user.user_metadata?.full_name ?? '',

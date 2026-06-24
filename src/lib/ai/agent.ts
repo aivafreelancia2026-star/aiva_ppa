@@ -144,7 +144,7 @@ async function runGeminiAgent(
   const geminiModel = client.getGenerativeModel({
     model: model.replace('gemini-', 'gemini-'),
     systemInstruction: SYSTEM_PROMPT,
-    tools: toGeminiTools(AIVA_TOOLS) as Parameters<typeof client.getGenerativeModel>[0]['tools'],
+    tools: toGeminiTools(AIVA_TOOLS) as any,
   })
 
   const history = messages.slice(0, -1).map(m => ({

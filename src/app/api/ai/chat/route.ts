@@ -124,15 +124,16 @@ async function executeTool(supabase: Awaited<ReturnType<typeof createClient>>, u
     }
 
     case 'updateTask': {
-      let query = supabase.from('tasks').update({
-        ...(args.title && { title: args.title }),
-        ...(args.description !== undefined && { description: args.description }),
-        ...(args.due_date && { due_date: args.due_date }),
-        ...(args.due_time && { due_time: args.due_time }),
-        ...(args.priority && { priority: args.priority }),
-        ...(args.status && { status: args.status }),
-        ...(args.category !== undefined && { category: args.category }),
-      }).eq('user_id', userId)
+      const updateData: any = {}
+      if (args.title) updateData.title = args.title
+      if (args.description !== undefined) updateData.description = args.description
+      if (args.due_date) updateData.due_date = args.due_date
+      if (args.due_time) updateData.due_time = args.due_time
+      if (args.priority) updateData.priority = args.priority
+      if (args.status) updateData.status = args.status
+      if (args.category !== undefined) updateData.category = args.category
+
+      let query = supabase.from('tasks').update(updateData).eq('user_id', userId)
 
       if (args.id) query = query.eq('id', args.id)
       else if (args.title_search) query = query.ilike('title', `%${args.title_search}%`)
@@ -198,13 +199,14 @@ async function executeTool(supabase: Awaited<ReturnType<typeof createClient>>, u
     }
 
     case 'updateShoppingItem': {
-      let query = supabase.from('shopping_items').update({
-        ...(args.name && { name: args.name }),
-        ...(args.quantity !== undefined && { quantity: Number(args.quantity) }),
-        ...(args.unit !== undefined && { unit: args.unit }),
-        ...(args.category !== undefined && { category: args.category }),
-        ...(args.is_purchased !== undefined && { is_purchased: args.is_purchased === 'true' }),
-      }).eq('user_id', userId)
+      const updateData: any = {}
+      if (args.name) updateData.name = args.name
+      if (args.quantity !== undefined) updateData.quantity = Number(args.quantity)
+      if (args.unit !== undefined) updateData.unit = args.unit
+      if (args.category !== undefined) updateData.category = args.category
+      if (args.is_purchased !== undefined) updateData.is_purchased = args.is_purchased === 'true'
+
+      let query = supabase.from('shopping_items').update(updateData).eq('user_id', userId)
       if (args.id) query = query.eq('id', args.id)
       else if (args.name_search) query = query.ilike('name', `%${args.name_search}%`)
       const { data, error } = await query.select().single()
@@ -285,12 +287,13 @@ async function executeTool(supabase: Awaited<ReturnType<typeof createClient>>, u
     }
 
     case 'updateReminder': {
-      let query = supabase.from('reminders').update({
-        ...(args.title && { title: args.title }),
-        ...(args.remind_at && { remind_at: args.remind_at }),
-        ...(args.frequency && { frequency: args.frequency }),
-        ...(args.is_active !== undefined && { is_active: args.is_active === 'true' }),
-      }).eq('user_id', userId)
+      const updateData: any = {}
+      if (args.title) updateData.title = args.title
+      if (args.remind_at) updateData.remind_at = args.remind_at
+      if (args.frequency) updateData.frequency = args.frequency
+      if (args.is_active !== undefined) updateData.is_active = args.is_active === 'true'
+
+      let query = supabase.from('reminders').update(updateData).eq('user_id', userId)
       if (args.id) query = query.eq('id', args.id)
       else if (args.title_search) query = query.ilike('title', `%${args.title_search}%`)
       const { data, error } = await query.select().single()
